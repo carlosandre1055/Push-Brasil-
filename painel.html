@@ -3,9 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <title>Push Brasil - Painel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #007acc;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+    button {
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #007acc;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .status {
+      margin-top: 20px;
+      font-style: italic;
+      color: green;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Bem-vindo ao Painel Push Brasil</h1>
-  <p>Este é um painel básico para envio de notificações.</p>
+  <h1>Push Brasil - Painel de Notificações</h1>
+
+  <form id="notificationForm">
+    <label for="title">Título da Notificação:</label>
+    <input type="text" id="title" name="title" placeholder="Digite o título" required />
+
+    <label for="message">Mensagem:</label>
+    <textarea id="message" name="message" rows="4" placeholder="Digite a mensagem" required></textarea>
+
+    <button type="submit">Enviar Notificação</button>
+  </form>
+
+  <p class="status" id="statusMessage">Notificação enviada com sucesso!</p>
+
+  <script>
+    const form = document.getElementById('notificationForm');
+    const statusMessage = document.getElementById('statusMessage');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Aqui será o código para enviar notificação via backend
+      // Por enquanto só mostra mensagem de sucesso
+      statusMessage.style.display = 'block';
+      setTimeout(() => {
+        statusMessage.style.display = 'none';
+      }, 3000);
+
+      form.reset();
+    });
+  </script>
 </body>
-</html>
+      </html>
