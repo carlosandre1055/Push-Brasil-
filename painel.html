@@ -1,54 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Painel Push Brasil</title>
+  <meta charset="UTF-8" />
+  <title>Push Brasil - Painel</title>
 </head>
 <body>
-  <h1>Painel Push Brasil</h1>
-  
-  <h2>Cadastrar site</h2>
-  <input id="siteId" placeholder="ID do site" />
-  <input id="siteName" placeholder="Nome do site" />
-  <button onclick="cadastrarSite()">Cadastrar</button>
-  
-  <h2>Enviar notificação</h2>
-  <input id="notifySiteId" placeholder="ID do site" />
-  <input id="notifyTitle" placeholder="Título da notificação" />
-  <input id="notifyMessage" placeholder="Mensagem" />
-  <button onclick="enviarNotificacao()">Enviar</button>
-
-  <script>
-    const API = "https://SEU_BACKEND.onrender.com/api"; // Substituir depois com o link da API
-
-    async function cadastrarSite() {
-      const siteId = document.getElementById("siteId").value;
-      const name = document.getElementById("siteName").value;
-
-      const res = await fetch(`${API}/sites`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ siteId, name })
-      });
-
-      const data = await res.json();
-      alert(data.message || JSON.stringify(data));
-    }
-
-    async function enviarNotificacao() {
-      const siteId = document.getElementById("notifySiteId").value;
-      const title = document.getElementById("notifyTitle").value;
-      const message = document.getElementById("notifyMessage").value;
-
-      const res = await fetch(`${API}/notify`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ siteId, title, message })
-      });
-
-      const data = await res.json();
-      alert(data.message || JSON.stringify(data));
-    }
-  </script>
+  <h1>Bem-vindo ao Painel Push Brasil</h1>
+  <p>Este é um painel básico para envio de notificações.</p>
 </body>
 </html>
